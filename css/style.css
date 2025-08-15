@@ -2,7 +2,6 @@
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f9;
-    display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -17,6 +16,7 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 320px;
+    margin: 0 auto;
 }
 
 h1 {

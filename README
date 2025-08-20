@@ -1,0 +1,26 @@
+Avaliação GIT
+
+1 - Crie um repositório com o nome avaliacao-git
+2 - envie para esse repositório 3 arquivos em branco, nas suas respectivas pastas
+	index.html
+	css/style.css
+	js/script.js
+3 - altere os arquivos deixando eles com o conteúdo presente no arquivo 
+
+https://github.com/vinimatias/atividade_01/blob/main/info-avaliacao.txt
+
+4 - crie um novo branch, onde você vai alterar o conteúdo do arquivo style.css, altere a cor do item "background-color" da classe container, para uma cor de sua escolha
+
+5 - crie um novo branch, onde você vai alterar o conteúdo do arquivo script.js, comente as funções existentes e insira uma função que utilize uma estrutura de repetição
+
+6 - faça os merges dos dois branches
+
+7 - Volte para a branch principal e faça a alteração a seguir no arquivo index.html (altere o título presente na tag <title></title> inserindo o seu nome completo)
+
+8 - gere um arquivo de log com o nome exemplo.log (o conteúdo do arquivo deverá ser a saída do log do git) 
+
+9 - faça um clone desse repositório em um novo repositório com o nome avaliacao-git-final
+
+10 - altere o arquivo index.html do novo repositório (altere o título presente na tag <title></title> retirando o seu nome e inserindo o seguinte: "Arquivo final da avaliação")
+
+Observação: a cada passo efetuado sempre dar um COMMIT.

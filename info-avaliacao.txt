@@ -1,0 +1,155 @@
+----- index.html ---------
+
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Interativo JS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Página Interativa com JavaScript</h1>
+        <p>Clique nos botões abaixo para ver a mágica acontecer!</p>
+
+        <button id="moveBtn">Tente me clicar!</button>
+
+        <button id="addTextBtn">Adicionar Texto</button>
+
+        <div id="textContainer">
+            <h2>Log de Mensagens:</h2>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
+
+
+---------- style.css ----------
+
+
+/* Estilo geral do corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Evita barras de rolagem quando o botão se move */
+}
+
+/* Contêiner principal */
+.container {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+}
+
+/* Estilo dos botões */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Estilo específico para o botão que se move */
+#moveBtn {
+    position: absolute; /* Permite que o botão seja movido livremente */
+    transition: top 0.5s ease-out, left 0.5s ease-out; /* Animação suave */
+}
+
+/* Contêiner para o texto adicionado */
+#textContainer {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    min-height: 100px;
+    text-align: left;
+    background-color: #fafafa;
+}
+
+.new-text {
+    background-color: #e7f3ff;
+    border-left: 4px solid #007bff;
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+}
+
+
+---------------- script.js ---------------------
+
+
+const moveBtn = document.getElementById('moveBtn');
+
+// Adiciona um "ouvinte de eventos" que dispara uma função quando o mouse passa por cima
+moveBtn.addEventListener('mouseover', function() {
+    // Obtém as dimensões da janela do navegador
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+
+    // Obtém as dimensões do próprio botão
+    const btnWidth = moveBtn.offsetWidth;
+    const btnHeight = moveBtn.offsetHeight;
+
+    // Calcula uma nova posição aleatória para o botão
+    // A posição máxima é o tamanho da tela menos o tamanho do botão
+    const newLeft = Math.random() * (screenWidth - btnWidth);
+    const newTop = Math.random() * (screenHeight - btnHeight);
+
+    // Aplica as novas posições ao estilo do botão
+    moveBtn.style.left = `${newLeft}px`;
+    moveBtn.style.top = `${newTop}px`;
+});
+
+
+// --- Função para o Botão que Adiciona Texto ---
+
+// Seleciona o botão e o contêiner de texto pelos seus IDs
+const addTextBtn = document.getElementById('addTextBtn');
+const textContainer = document.getElementById('textContainer');
+let messageCount = 0; // Um contador para numerar as mensagens
+
+// Adiciona um "ouvinte de eventos" que dispara uma função ao ser clicado
+addTextBtn.addEventListener('click', function() {
+    messageCount++; // Incrementa o contador
+
+    // Cria um novo elemento de parágrafo (<p>)
+    const newParagraph = document.createElement('p');
+
+    // Adiciona uma classe CSS ao novo parágrafo para estilização
+    newParagraph.classList.add('new-text');
+
+    // Define o conteúdo de texto do novo parágrafo
+    newParagraph.textContent = `Mensagem #${messageCount}: O JavaScript adicionou este texto!`;
+
+    // Adiciona o novo parágrafo como um "filho" do contêiner de texto
+    textContainer.appendChild(newParagraph);
+});
